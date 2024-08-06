@@ -1,0 +1,294 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIXEDGEAR INDONESIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #eee;
+            border-bottom: 1px solid #ddd;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+        }
+        .product-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-item h3 {
+            margin: 10px 0;
+        }
+        .product-item p {
+            color: #888;
+        }
+        .product-item button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product-item button:hover {
+            background-color: #555;
+        }
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 300px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .cart h2 {
+            text-align: center;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        .cart-item button {
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .checkout {
+            margin-top: 20px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .cart-icon {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cart-icon img {
+            width: 20px;
+            height: 20px;
+        }
+        .minibar {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .minibar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .minibar a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="minibar">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#kontak">Kontak</a>
+    </div>
+    <header>
+        <h1>FIXEDGEAR INDONESIA</h1>
+        <p>Toko Sepeda Fixie Terbaik di Indonesia</p>
+    </header>
+    <div class="container" id="home">
+        <section class="product">
+            <div class="product-item">
+                <img src="hitam.jpeg" alt="Frame Tsunami Hitam">
+                <h3>Sepeda Fixie 1</h3>
+                <p>Rp 3.500.000</p>
+                <button onclick="addToCart('Frame Tsunami Hitam', 3500000)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="hitam mix.jpg" alt="Frame Tsunami Hitam Mix">
+                <h3>Sepeda Fixie 2</h3>
+                <p>Rp 4.000.000</p>
+                <button onclick="addToCart('Frame Tsunami Hitam Mix', 4000000)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="silver.jpeg" alt="Frame Tsunami Silver">
+                <h3>Sepeda Fixie 3</h3>
+                <p>Rp 4.500.000</p>
+                <button onclick="addToCart('Frame Tsunami Silver', 4500000)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="rose.jpeg" alt="Frame Tsunami Rose">
+                <h3>Sepeda Fixie 4</h3>
+                <p>Rp 4.500.000</p>
+                <button onclick="addToCart('Frame Tsunami Rose', 4500000)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="orange.jpg" alt="Frame Tsunami Orange">
+                <h3>Sepeda Fixie 5</h3>
+                <p>Rp 4.500.000</p>
+                <button onclick="addToCart('Frame Tsunami Orange', 4500000)">Add to Cart</button>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="about">
+        <section>
+            <h2>Tentang Kami</h2>
+            <p>FixedGear Indonesia adalah toko sepeda terkemuka yang menawarkan berbagai jenis sepeda fixed gear yang stylish dan berkualitas tinggi. Kami berdedikasi untuk menyediakan sepeda yang tidak hanya berfungsi dengan baik, tetapi juga memberikan pengalaman berkendara yang menyenangkan dan penuh gaya bagi para pengguna.</p>
+            <p>Kami menawarkan berbagai pilihan sepeda fixed gear yang dirancang khusus untuk memenuhi kebutuhan para pengendara sepeda urban. Setiap sepeda dirakit dengan komponen berkualitas tinggi dan melalui proses kontrol kualitas yang ketat untuk memastikan kepuasan pelanggan. Model-model sepeda kami meliputi:</p>
+            <p>FixedGear Basic: Sepeda dengan desain sederhana dan elegan, cocok untuk pemula dan pengguna sehari-hari.</p>
+            <p>FixedGear Pro: Dirancang untuk pengendara yang lebih berpengalaman, dilengkapi dengan komponen premium untuk performa optimal.</p>
+            <p>FixedGear Elite: Sepeda eksklusif dengan desain dan performa terbaik untuk pengendara profesional.</p>
+        </section>
+    </div>
+    <div class="container" id="kontak">
+        <section>
+            <h2>Kontak</h2>
+            <p>Nama: Najwan Raditya Luthfi</p>
+            <p>Kelas: IS-3</p>
+            <p>NIM: 10523084</p>
+            <img src="WhatsApp Image 2023-12-04 at 15.39.27_16a3dcb2.jpg" alt="Najwan" width="200" height="250">
+            <a href="mailto:najwan.10523084@mahasiswa.unikom.ac.id" title="Email">
+                <img src="kisspng-computer-icons-aol-mail-email-address-webmail-email-gray-5b4c158516f213.452736121531712901094.png" alt="Email" style="width: 100px; vertical-align: middle;">
+            </a>
+            <a href="https://www.instagram.com/najwan.rl?igshid=ZHpwMGxlNHlrb2N5" title="Instagram">
+                <img src="avfqa0q1g.webp" alt="Instagram" style="width: 100px; vertical-align: middle;">
+            </a>
+    </div>
+        </section>
+    </div>
+    <div class="cart" id="cart">
+        <h2>Keranjang Belanja</h2>
+        <ul class="cart-items" id="cart-items"></ul>
+        <p>Total: Rp <span id="total">0</span></p>
+        <div class="checkout">
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <div class="container" id="checkout" style="display: none;">
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <label for="payment-method">Pilih Metode Pembayaran:</label>
+            <select id="payment-method">
+                <option value="bank">Transfer Bank</option>
+                <option value="cash">Cash</option>
+                <option value="qris">QRIS/E-wallet</option>
+            </select>
+            <button type="button" onclick="completeCheckout()">Bayar</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 FIXEDGEAR INDONESIA. All rights reserved.
+    </footer>
+    <div class="cart-icon" onclick="toggleCart()">
+        <img src="isspng-clip-art-computer-icons-portable-network-graphics-cart-svg-png-icon-free-download-268736-online-1713889955862.webp" alt="Cart">
+    </div>
+    <script>
+        let cart = [];
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCart();
+        }
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'cart-item';
+                li.innerHTML = `${item.product} - Rp ${item.price.toLocaleString()} <button onclick="removeFromCart(${index})">Remove</button>`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            document.getElementById('total').innerText = total.toLocaleString();
+        }
+        function checkout() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('cart').style.display = 'none';
+            document.getElementById('checkout').style.display = 'block';
+        }
+        function completeCheckout() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            alert(`Terima kasih telah berbelanja di FIXEDGEAR INDONESIA. Anda memilih metode pembayaran: ${paymentMethod}.`);
+            cart = [];
+            updateCart();
+            document.getElementById('checkout-form').reset();
+            document.getElementById('home').style.display = 'block';
+            document.getElementById('cart').style.display = 'block';
+            document.getElementById('checkout').style.display = 'none';
+        }
+        function toggleCart() {
+            const cart = document.getElementById('cart');
+            if (cart.style.display === 'none' || cart.style.display === '') {
+                cart.style.display = 'block';
+            } else {
+                cart.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
